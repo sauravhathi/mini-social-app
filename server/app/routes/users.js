@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-// Register a new user
 router.post('/register', async (req, res) => {
     try {
         const { name, image, username, password } = req.body;
@@ -36,7 +35,7 @@ router.post('/login', async (req, res) => {
 
         // Generate access token
         const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET, {
-            expiresIn: '30m', // Access token expires in 15 minutes
+            expiresIn: '1d',
         });
 
         // Send the access token in the response body
@@ -78,7 +77,6 @@ router.get('/me', async (req, res) => {
     }
 });
 
-// fetch user by username
 router.get('/find/:username', async (req, res) => {
     try {
         const username = req.params.username;
@@ -93,7 +91,6 @@ router.get('/find/:username', async (req, res) => {
     }
 });
 
-// find people
 router.get('/find-people/:searchTerm', async (req, res) => {
     try {
         const searchTerm = req.params.searchTerm;

@@ -3,9 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const isAuthenticated = (req, res, next) => {
     try {
-        // console.log(req.headers);
         const accessToken = req.headers.authorization.split(' ')[1];
-        console.log(accessToken);
         if (!accessToken) {
             return res.status(403).json({ error: 'User not authenticated' });
         }
@@ -14,7 +12,7 @@ const isAuthenticated = (req, res, next) => {
                 return res.status(403).json({ error: 'Invalid access token' });
             }
 
-            req.user = decoded.userId; // Set the authenticated user ID in the request object
+            req.user = decoded.userId;
             next();
         });
     } catch (err) {
@@ -23,7 +21,6 @@ const isAuthenticated = (req, res, next) => {
     }
 };
 
-// Middleware to handle errors
 const errorHandler = (err, req, res, next) => {
     console.error(err);
     res.status(500).json({ error: 'Something went wrong' });

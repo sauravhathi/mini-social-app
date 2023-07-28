@@ -88,7 +88,6 @@ const userSlice = createSlice({
             )
             .addCase(SignUpUser.fulfilled, (state, action) => {
                 state.loading = false;
-                state.isAuthenticated = true;
             }
             )
             .addCase(SignUpUser.rejected, (state, action) => {
