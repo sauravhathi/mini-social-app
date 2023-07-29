@@ -38,7 +38,6 @@ export default function Auth() {
 
             if (isLogin) {
                 dispatch(loginUser({ username, password }));
-                console.log(isAuthenticated);
             } else {
                 const base64Image = await toBase64(image);
                 dispatch(SignUpUser({ username, password, name, image: base64Image }));

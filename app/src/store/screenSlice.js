@@ -32,7 +32,6 @@ const screenSlice = createSlice({
   reducers: {
     setActiveScreen: (state, action) => {
       const screenId = action.payload;
-      console.log(screenId);
       if (state.screenIds.includes(screenId)) {
         state.backStack.push(state.activeScreen);
         document.title = `Mini Social App - ${screenId.split(/(?=[A-Z])/).join(' ').toUpperCase()}`;

@@ -72,7 +72,6 @@ export const fetchPostById = createAsyncThunk('posts/fetchPostById', async (post
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
     });
-    console.log("fetchPostById")
     return response.data;
   } catch (error) {
     throw Error('An error occurred while fetching the post or story');

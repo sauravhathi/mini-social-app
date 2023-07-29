@@ -42,7 +42,6 @@ const useDebounce = (value, delay) => {
 export default function PostCreation() {
     const dispatch = useDispatch()
     const { image, loading, error } = useSelector((state) => state.posts)
-    console.log(image)
     const { users, user } = useSelector((state) => state.auth)
     const [postData, setPostData] = useState({
         description: '',

@@ -73,7 +73,6 @@ const ImageTool = () => {
 
 
     const handleNextClick = () => {
-        console.log("imagetool", modifiedImage);
         dispatch(setActiveScreen('post'));
         dispatch(addImage(modifiedImage));
     };

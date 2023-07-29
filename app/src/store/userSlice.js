@@ -14,7 +14,6 @@ export const SignUpUser = createAsyncThunk('user/registerUser', async ({ usernam
 export const refreshToken = createAsyncThunk('user/refreshToken', async () => {
     try {
         const response = await api.post('/users/refresh-token');
-        console.log(response.data.accessToken);
         return response.data.accessToken;
     } catch (error) {
         throw Error('An error occurred while refreshing the access token');
@@ -34,7 +33,6 @@ export const loginUser = createAsyncThunk('user/loginUser', async ({ username, p
     try {
         const response = await api.post('/users/login', { username, password });
         const { message, accessToken } = response.data;
-        console.log(message, accessToken);
         localStorage.setItem('access_token', accessToken);
         return message;
     } catch (error) {
@@ -44,9 +42,7 @@ export const loginUser = createAsyncThunk('user/loginUser', async ({ username, p
 
 export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
     try {
-        const response = await api.post('/users/logout');
-        console.log(response.data.message);
-        return response.data.message;
+        localStorage.removeItem('access_token');
     } catch (error) {
         throw Error('An error occurred while logging out');
     }
@@ -59,7 +55,6 @@ export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile', async 
                 Authorization: `Bearer ${localStorage.getItem('access_token')}`,
             },
         });
-        console.log(response.data);
         return response.data;
     } catch (error) {
         throw Error('An error occurred while fetching the user profile');
