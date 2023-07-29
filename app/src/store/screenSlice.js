@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const componentMap = {
   Home: 'Home',
   AddPost: 'AddPost',
-  CreatePost: 'CreatePost',
+  CreateStory: 'CreateStory',
   SelectFromGallery: 'SelectFromGallery',
   ImageTool: 'ImageTool',
-  PostCreation: 'PostCreation',
+  Post: 'Post',
   PostViewPost: 'PostViewPost',
   PostViewStory: 'PostViewStory',
 };
@@ -13,14 +13,14 @@ const initialState = {
   activeScreen: null,
   backStack: [],
   isHeaderVisible: true,
-  screenIds: ['home', 'addPost', 'createPost', 'selectFromGallery', 'imageTool', 'postCreation', 'postViewPost', 'postViewStory'],
+  screenIds: ['home', 'addPost', 'createStory', 'selectFromGallery', 'imageTool', 'post', 'postViewPost', 'postViewStory'],
   screens: [
     { id: 'home', componentId: 'Home' },
     { id: 'addPost', componentId: 'AddPost' },
-    { id: 'createPost', componentId: 'CreatePost' },
+    { id: 'createStory', componentId: 'CreateStory' },
     { id: 'selectFromGallery', componentId: 'SelectFromGallery' },
     { id: 'imageTool', componentId: 'ImageTool' },
-    { id: 'postCreation', componentId: 'PostCreation' },
+    { id: 'post', componentId: 'Post' },
     { id: 'postViewPost', componentId: 'PostViewPost' },
     { id: 'postViewStory', componentId: 'PostViewStory' },
   ]
@@ -35,6 +35,7 @@ const screenSlice = createSlice({
       console.log(screenId);
       if (state.screenIds.includes(screenId)) {
         state.backStack.push(state.activeScreen);
+        document.title = `Mini Social App - ${screenId.split(/(?=[A-Z])/).join(' ').toUpperCase()}`;
         state.activeScreen = screenId;
       }
     },

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, SignUpUser } from '../../../store/userSlice';
+import logo from '../../../highon.png';
 
 export default function Auth() {
     const [isLogin, setIsLogin] = useState(true);
@@ -50,9 +51,12 @@ export default function Auth() {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
-            <div className="w-full max-w-xs">
+            <div className="w-96 border border-gray-300 p-4 rounded-md">
+                <div className="flex justify-center mb-4">
+                    <img src={logo} alt="logo" className="w-24" />
+                </div>
                 <form className="flex flex-col" onSubmit={handleAuth}>
-                    <h1 className="text-3xl font-bold mb-4">{isLogin ? 'Login' : 'Sign Up'}</h1>
+                    <h1 className="text-3xl font-bold mb-4 text-center">{isLogin ? 'Login' : 'Sign Up'}</h1>
                     <input
                         type="text"
                         placeholder="Username"

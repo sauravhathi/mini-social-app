@@ -16,7 +16,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     throw Error('An error occurred while fetching the posts');
@@ -25,13 +24,13 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 
 export const createPost = createAsyncThunk('posts/createPost', async (postData) => {
   try {
-    const response = await api.post('/posts/create', 
-    postData,
-    {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-      },
-    });
+    const response = await api.post('/posts/create',
+      postData,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+        },
+      });
     return response.data.post;
   } catch (error) {
     throw Error('An error occurred while creating the post or story');
@@ -51,15 +50,50 @@ export const likePost = createAsyncThunk('posts/likePost', async (postId) => {
   }
 });
 
+export const likeStory = createAsyncThunk('posts/likeStory', async (postId) => {
+  try {
+    const response = await api.post(`/posts/like/${postId}`, {}, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
+
+    return response.data.post;
+  } catch (error) {
+    throw Error('An error occurred while liking the post or story');
+  }
+});
+
+// by id fetch
+export const fetchPostById = createAsyncThunk('posts/fetchPostById', async (postId) => {
+  try {
+    const response = await api.get(`/posts/${postId}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
+    console.log("fetchPostById")
+    return response.data;
+  } catch (error) {
+    throw Error('An error occurred while fetching the post or story');
+  }
+});
+
 const postsSlice = createSlice({
   name: 'posts',
   initialState: {
     posts: [],
+    story: [],
+    postId: '',
     image: '',
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setPostId: (state, action) => {
+      state.postId = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPosts.pending, (state) => {
@@ -99,7 +133,7 @@ const postsSlice = createSlice({
           }
           return post;
         }
-      )
+        )
       }
       )
       .addCase(likePost.rejected, (state, action) => {
@@ -121,8 +155,39 @@ const postsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       }
-      );
+      )
+      .addCase(fetchPostById.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      }
+      )
+      .addCase(fetchPostById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.story = action.payload;
+      }
+      )
+      .addCase(fetchPostById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      }
+      )
+      .addCase(likeStory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      }
+      )
+      .addCase(likeStory.fulfilled, (state, action) => {
+        state.loading = false;
+        state.story = action.payload;
+      }
+      )
+      .addCase(likeStory.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      }
+      )
   },
 });
 
+export const { setPostId } = postsSlice.actions;
 export default postsSlice.reducer;

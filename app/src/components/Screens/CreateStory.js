@@ -5,7 +5,7 @@ import { AiFillCamera } from 'react-icons/ai';
 import { navigateToPreviousScreen, setActiveScreen } from '../../store/screenSlice';
 import { useDispatch } from 'react-redux';
 
-const CreatePost = () => {
+const CreateStory = () => {
     const dispatch = useDispatch();
     return (
         <div className="flex flex-col h-screen ">
@@ -28,4 +28,4 @@ const CreatePost = () => {
     );
 };
 
-export default CreatePost;
+export default CreateStory;

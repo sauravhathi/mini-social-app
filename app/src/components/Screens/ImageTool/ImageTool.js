@@ -6,7 +6,7 @@ import { setActiveScreen, navigateToPreviousScreen } from '../../../store/screen
 import { useDispatch, useSelector } from 'react-redux';
 import { addImage } from '../../../store/postsSlice';
 
-const filtersMap = {
+export const filtersMap = {
     'none': 'none',
     'b&w': 'grayscale(100%)',
     'retro': 'sepia(100%)',
@@ -44,7 +44,7 @@ const ImageTool = () => {
                 const inputAspectRatio = inputWidth / inputHeight;
                 const [aspectWidth, aspectHeight] = aspectRatio.split(':');
                 const numericAspectRatio = aspectWidth / aspectHeight;
-    
+
                 let outputWidth = inputWidth;
                 let outputHeight = inputHeight;
                 if (inputAspectRatio > numericAspectRatio) {
@@ -54,27 +54,27 @@ const ImageTool = () => {
                 }
                 const outputX = (outputWidth - inputWidth) * 0.5;
                 const outputY = (outputHeight - inputHeight) * 0.5;
-    
+
                 const canvas = document.createElement('canvas');
                 canvas.width = outputWidth;
                 canvas.height = outputHeight;
                 const ctx = canvas.getContext('2d');
                 ctx.filter = applyFilters();
-    
+
                 ctx.drawImage(img, outputX, outputY);
                 setModifiedImage(canvas.toDataURL());
             };
             img.src = image;
         };
-    
+
         handleImage();
     }, [image, filters, aspectRatio, saturation, brightness, contrast]);
-    
-    
+
+
 
     const handleNextClick = () => {
         console.log("imagetool", modifiedImage);
-        dispatch(setActiveScreen('postCreation'));
+        dispatch(setActiveScreen('post'));
         dispatch(addImage(modifiedImage));
     };
 
@@ -118,6 +118,7 @@ const ImageTool = () => {
                             height={aspect.height}
                             aspectRatio={aspectRatio}
                             setAspectRatio={setAspectRatio}
+                            image={modifiedImage || image}
                         />
                     ))}
                 </div>
@@ -130,40 +131,76 @@ const ImageTool = () => {
                             value={filter}
                             filters={filters}
                             setFilters={setFilters}
+                            image={image}
                         />
                     ))}
                 </div>
-                <div className="text-md font-bold px-4">Saturation</div>
-                <input
-                    type="range"
-                    min="0"
-                    max="200"
-                    value={saturation}
-                    onChange={(e) => setSaturation(e.target.value)}
-                    className="px-4"
-                />
-                <div className="text-md font-bold px-4">Brightness</div>
-                <input
-                    type="range"
-                    min="0"
-                    max="200"
-                    value={brightness}
-                    onChange={(e) => setBrightness(e.target.value)}
-                    className="px-4"
-                />
-                <div className="text-md font-bold px-4">Contrast</div>
-                <input
-                    type="range"
-                    min="0"
-                    max="200"
-                    value={contrast}
-                    onChange={(e) => setContrast(e.target.value)}
-                    className="px-4"
-                />
-                <div className="flex justify-center py-4">
-                    <button onClick={handleResetClick} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
-                        Reset
-                    </button>
+                {/* <div className="flex flex-col gap-4 px-4 py-4">
+                    <div className="text-md font-bold px-4">Saturation</div>
+                    <input
+                        type="range"
+                        min="0"
+                        max="200"
+                        value={saturation}
+                        onChange={(e) => setSaturation(e.target.value)}
+                        className="px-4"
+                    />
+                    <div className="text-md font-bold px-4">Brightness</div>
+                    <input
+                        type="range"
+                        min="0"
+                        max="200"
+                        value={brightness}
+                        onChange={(e) => setBrightness(e.target.value)}
+                        className="px-4"
+                    />
+                    <div className="text-md font-bold px-4">Contrast</div>
+                    <input
+                        type="range"
+                        min="0"
+                        max="200"
+                        value={contrast}
+                        onChange={(e) => setContrast(e.target.value)}
+                        className="px-4"
+                    />
+                </div> */}
+                <div className="grid grid-cols-2 gap-4 items-center px-4 py-4">
+                    <div className="flex flex-col gap-4">
+                        <div className="text-md font-bold">Saturation</div>
+                        <input
+                            type="range"
+                            min="0"
+                            max="200"
+                            value={saturation}
+                            onChange={(e) => setSaturation(e.target.value)}
+                            className="px-4"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <div className="text-md font-bold">Brightness</div>
+                        <input
+                            type="range"
+                            min="0"
+                            max="200"
+                            value={brightness}
+                            onChange={(e) => setBrightness(e.target.value)}
+                            className="px-4"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <div className="text-md font-bold">Contrast</div>
+                        <input
+                            type="range"
+                            min="0"
+                            max="200"
+                            value={contrast}
+                            onChange={(e) => setContrast(e.target.value)}
+                            className="px-4"
+                        />
+                    </div>
+                    <div onClick={handleResetClick} className="flex justify-center items-center gap-2 px-4 py-2 rounded-full bg-white text-red-500 border-2 border-red-500 cursor-pointer">
+                        <span className="text-md font-bold text-red-500">Reset</span>
+                    </div>
                 </div>
             </div>
         </div>

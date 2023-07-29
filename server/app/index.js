@@ -20,16 +20,14 @@ mongoose
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
-  // im uload image bash so encrese limit
 app.use(cookieParser());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors());
 
 app.use('/users', usersRouter);
-app.use('/posts', isAuthenticated, postsRouter); // Use isAuthenticated middleware for post-related routes
+app.use('/posts', isAuthenticated, postsRouter);
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ error: 'Something went wrong' });

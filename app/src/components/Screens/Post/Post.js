@@ -10,11 +10,17 @@ import { setActiveScreen, navigateToPreviousScreen } from '../../../store/screen
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost } from '../../../store/postsSlice';
 import { findUsers } from '../../../store/userSlice';
+import { fetchUserProfile } from '../../../store/userSlice';
+import {MdMovieFilter} from 'react-icons/md';
+import{BsEmojiSmileFill, BsEmojiSmile} from 'react-icons/bs';
 
 const vibeTags = [
     { name: 'Photography', icon: <BiSolidCameraPlus className="text-md" /> },
     { name: 'Food Vlogs', icon: <MdFastfood className="text-md" /> },
     { name: 'Gaming', icon: <MdVideogameAsset className="text-md" /> },
+    { name: 'Movies', icon: <MdMovieFilter className="text-md" /> },
+    { name: 'Travel', icon: <BsEmojiSmileFill className="text-md" /> },
+    { name: 'Music', icon: <BsEmojiSmile className="text-md" /> },
 ];
 
 const useDebounce = (value, delay) => {
@@ -37,7 +43,7 @@ export default function PostCreation() {
     const dispatch = useDispatch()
     const { image, loading, error } = useSelector((state) => state.posts)
     console.log(image)
-    const { users } = useSelector((state) => state.auth)
+    const { users, user } = useSelector((state) => state.auth)
     const [postData, setPostData] = useState({
         description: '',
         isStory: true,
@@ -47,7 +53,6 @@ export default function PostCreation() {
         vibetags: [],
         likes: [],
     })
-    console.log(postData)
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -107,29 +112,38 @@ export default function PostCreation() {
                         <div className="flex justify-between items-center py-5 border-b-2 border-gray-200">
                             <div className="flex justify-between items-center gap-2 text-blue-500">
                                 <BsFillTagFill className="text-md" />
-                                <span className="text-md font-bold">Tag People</span>
+                                <span className="text-md font-bold">Tag People<sup className="text-red-500">{postData.tags.length > 0 && postData.tags.length}</sup></span>
                                 <div className="relative flex flex-col justify-between">
-                                    <input type="text" placeholder="Tag People" name="tags" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                                    <input
+                                    type="text"
+                                    placeholder="Tag People"
+                                    name="tags"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="border-2 border-gray-300 rounded-lg p-2"
+                                     />
                                     <div className="flex flex-col gap-2 absolute top-10 left-0 w-full bg-white rounded-lg shadow-lg">
-                                        {searchTerm && users.map((user, index) => (
+                                        {searchTerm && users.map((u, index) => (
                                             <div
                                                 key={index}
                                                 className="flex justify-between items-center gap-2 px-3 py-2 rounded-full bg-white text-blue-500 border-2 border-blue-500"
                                                 onClick={() => {
-                                                    if (postData.tags.includes(user._id)) {
-                                                        setPostData({ ...postData, tags: postData.tags.filter((tag) => tag !== user._id) });
+                                                    if (u._id === user._id) {
+                                                        return;
+                                                    }
+
+                                                    if (postData.tags.includes(u._id)) {
+                                                        setPostData({ ...postData, tags: postData.tags.filter((tag) => tag !== u._id) });
                                                     } else {
-                                                        setPostData({ ...postData, tags: [...postData.tags, user._id] });
+                                                        setPostData({ ...postData, tags: [...postData.tags, u._id] });
                                                         setSearchTerm('');
                                                     }
                                                 }}
                                             >
-                                                {user.username}
+                                                {u.username}
                                             </div>
                                         ))}
-                                    </div>
-                                    <div className="flex flex-wrap justify-start gap-2">
-                                        {postData.tags.join(', ')}
+
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +153,7 @@ export default function PostCreation() {
                             <div className="flex justify-between items-center gap-2 text-blue-500">
                                 <IoLocationSharp className="text-md" />
                                 <span className="text-md font-bold">Add Location</span>
-                                <input type="text" placeholder="Add Location" name="location" value={postData.location} onChange={handlePost} />
+                                <input type="text" placeholder="Add Location" name="location" value={postData.location} onChange={handlePost} className="border-2 border-gray-300 rounded-lg p-2" />
                             </div>
                             <MdKeyboardArrowRight className="text-2xl " />
                         </div>

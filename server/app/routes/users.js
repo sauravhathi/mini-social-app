@@ -33,12 +33,10 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        // Generate access token
         const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET, {
             expiresIn: '1d',
         });
 
-        // Send the access token in the response body
         res.json({ message: 'Login successful', accessToken });
     } catch (err) {
         console.log(err);
@@ -46,20 +44,9 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post('/logout', (req, res) => {
-    try {
-        // Clear the access token cookie
-        res.clearCookie('access_token');
-        res.json({ message: 'Logout successful' });
-    } catch (err) {
-        res.status(500).json({ error: 'An error occurred while logging out' });
-    }
-});
-
 router.get('/me', async (req, res) => {
     try {
         const accessToken = req.headers.authorization.split(' ')[1];
-
         const decodedToken = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
         const userId = decodedToken.userId;
 
