@@ -22,11 +22,37 @@ This MERN stack-based mini social app comes packed with awesome features to conn
 
 ## Screenshots 📸
 
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/2349c514-aa07-43e9-89b0-4922d44f81e7)
 
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/3e4b3259-d2a1-4862-9e1a-ab8aeba1b5eb)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/2de13ffb-13cc-4ec3-a5f1-b68bb7ccc0b9)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/1071ea5a-1486-45d4-8cc8-f76e6ce44832)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/83f25c4e-37db-4f8d-b72d-f3538344b9d8)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/79a30a6b-07ad-4eea-875b-c9463e22076a)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/b092aa69-abd7-48c9-af96-4b5c4ce5e45f)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/a531c2ca-0bbb-40ea-b510-15e465b66d05)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/1901cd6a-a9c9-4a37-9858-f41c742a733b)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/87c634d6-f8d7-47f2-8bf4-2121d3beb273)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/e934b8fa-56f6-494f-99b8-4dc631a76ec1)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/9384892f-1a8d-4e18-83e0-85131506ab88)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/b0e2c397-dda1-478f-96d2-098eb48f4d4d)
+
+![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/fe826490-862f-4bdc-a971-85c8b5e44114)
 
 ## Demo 🎥
 
-
+### https://mini-social-app.vercel.app
 
 ## Tech Stack 👨‍💻🔧
 
@@ -96,7 +122,7 @@ npm start
 
 ## License 📝
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/sauravhathi/mini-social-app/blob/master/LICENSE.md)
 
 ## Feedback 🤝
 
