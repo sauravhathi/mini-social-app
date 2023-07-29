@@ -22,33 +22,54 @@ This MERN stack-based mini social app comes packed with awesome features to conn
 
 ## Screenshots 📸
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/2349c514-aa07-43e9-89b0-4922d44f81e7)
+<p align="center">
+  
+<!-- Screenshot 1 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/d324cc01-3d23-4e06-9136-2454528c51eb" alt="Screenshot 1" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/3e4b3259-d2a1-4862-9e1a-ab8aeba1b5eb)
+<!-- Screenshot 2 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/2349c514-aa07-43e9-89b0-4922d44f81e7" alt="Screenshot 2" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/2de13ffb-13cc-4ec3-a5f1-b68bb7ccc0b9)
+<!-- Screenshot 3 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/3e4b3259-d2a1-4862-9e1a-ab8aeba1b5eb" alt="Screenshot 3"  style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/1071ea5a-1486-45d4-8cc8-f76e6ce44832)
+<!-- Screenshot 4 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/2de13ffb-13cc-4ec3-a5f1-b68bb7ccc0b9" alt="Screenshot 4" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/83f25c4e-37db-4f8d-b72d-f3538344b9d8)
+<!-- Screenshot 5 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/1071ea5a-1486-45d4-8cc8-f76e6ce44832" alt="Screenshot 5" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/79a30a6b-07ad-4eea-875b-c9463e22076a)
+<!-- Screenshot 6 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/83f25c4e-37db-4f8d-b72d-f3538344b9d8" alt="Screenshot 6" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/b092aa69-abd7-48c9-af96-4b5c4ce5e45f)
+<!-- Screenshot 7 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/79a30a6b-07ad-4eea-875b-c9463e22076a" alt="Screenshot 7" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/a531c2ca-0bbb-40ea-b510-15e465b66d05)
+<!-- Screenshot 8 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/b092aa69-abd7-48c9-af96-4b5c4ce5e45f" alt="Screenshot 8" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/1901cd6a-a9c9-4a37-9858-f41c742a733b)
+<!-- Screenshot 9 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/a531c2ca-0bbb-40ea-b510-15e465b66d05" alt="Screenshot 9" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/87c634d6-f8d7-47f2-8bf4-2121d3beb273)
+<!-- Screenshot 10 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/1901cd6a-a9c9-4a37-9858-f41c742a733b" alt="Screenshot 10" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/e934b8fa-56f6-494f-99b8-4dc631a76ec1)
+<!-- Screenshot 11 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/87c634d6-f8d7-47f2-8bf4-2121d3beb273" alt="Screenshot 11" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/9384892f-1a8d-4e18-83e0-85131506ab88)
+<!-- Screenshot 12 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/e934b8fa-56f6-494f-99b8-4dc631a76ec1" alt="Screenshot 12" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/b0e2c397-dda1-478f-96d2-098eb48f4d4d)
+<!-- Screenshot 13 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/9384892f-1a8d-4e18-83e0-85131506ab88" alt="Screenshot 13" style="width: 40%">
 
-![image](https://github.com/sauravhathi/mini-social-app/assets/61316762/fe826490-862f-4bdc-a971-85c8b5e44114)
+<!-- Screenshot 14 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/b0e2c397-dda1-478f-96d2-098eb48f4d4d" alt="Screenshot 14" style="width: 40%">
+
+<!-- Screenshot 15 -->
+<img src="https://github.com/sauravhathi/mini-social-app/assets/61316762/fe826490-862f-4bdc-a971-85c8b5e44114" alt="Screenshot 15" style="width: 40%">
+
+</p>
 
 ## Demo 🎥
 
